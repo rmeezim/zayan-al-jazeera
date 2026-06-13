@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" fill="none" aria-hidden="true" preserveAspectRatio="xMidYMax slice">
+  <defs>
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3cb2e7" stop-opacity=".30"/>
+      <stop offset="1" stop-color="#1480b6" stop-opacity=".05"/>
+    </linearGradient>
+    <linearGradient id="glass2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#84c13e" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#1480b6" stop-opacity=".04"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c1a23" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0c1a23" stop-opacity=".55"/>
+    </linearGradient>
+  </defs>
+  <g stroke="#6cc7ef" stroke-opacity=".55" stroke-width="1.4">
+    <!-- main tower -->
+    <rect x="820" y="210" width="300" height="560" fill="url(#glass)"/>
+    <g stroke-opacity=".4">
+      <line x1="820" y1="270" x2="1120" y2="270"/><line x1="820" y1="330" x2="1120" y2="330"/>
+      <line x1="820" y1="390" x2="1120" y2="390"/><line x1="820" y1="450" x2="1120" y2="450"/>
+      <line x1="820" y1="510" x2="1120" y2="510"/><line x1="820" y1="570" x2="1120" y2="570"/>
+      <line x1="820" y1="630" x2="1120" y2="630"/><line x1="820" y1="690" x2="1120" y2="690"/>
+      <line x1="895" y1="210" x2="895" y2="770"/><line x1="970" y1="210" x2="970" y2="770"/><line x1="1045" y1="210" x2="1045" y2="770"/>
+    </g>
+    <!-- secondary block -->
+    <rect x="1120" y="380" width="200" height="390" fill="url(#glass2)"/>
+    <g stroke-opacity=".35">
+      <line x1="1120" y1="440" x2="1320" y2="440"/><line x1="1120" y1="500" x2="1320" y2="500"/>
+      <line x1="1120" y1="560" x2="1320" y2="560"/><line x1="1120" y1="620" x2="1320" y2="620"/>
+      <line x1="1120" y1="680" x2="1320" y2="680"/>
+      <line x1="1186" y1="380" x2="1186" y2="770"/><line x1="1253" y1="380" x2="1253" y2="770"/>
+    </g>
+    <!-- low podium with scaffolding -->
+    <rect x="640" y="560" width="180" height="210" fill="url(#glass)"/>
+    <g stroke="#84c13e" stroke-opacity=".5">
+      <line x1="640" y1="600" x2="820" y2="600"/><line x1="640" y1="650" x2="820" y2="650"/>
+      <line x1="640" y1="700" x2="820" y2="700"/>
+      <line x1="685" y1="560" x2="685" y2="770"/><line x1="730" y1="560" x2="730" y2="770"/><line x1="775" y1="560" x2="775" y2="770"/>
+    </g>
+    <!-- tower crane -->
+    <g stroke="#9ad6f4" stroke-opacity=".6">
+      <line x1="980" y1="210" x2="980" y2="70"/>
+      <line x1="700" y1="120" x2="1180" y2="120"/>
+      <line x1="700" y1="120" x2="980" y2="70"/>
+      <line x1="1180" y1="120" x2="980" y2="70"/>
+      <line x1="760" y1="120" x2="760" y2="170"/>
+      <line x1="760" y1="170" x2="800" y2="170"/>
+    </g>
+  </g>
+  <!-- dimension line -->
+  <g stroke="#84c13e" stroke-width="1.2" stroke-opacity=".7">
+    <line x1="640" y1="800" x2="1320" y2="800"/>
+    <line x1="640" y1="790" x2="640" y2="810"/>
+    <line x1="980" y1="790" x2="980" y2="810"/>
+    <line x1="1320" y1="790" x2="1320" y2="810"/>
+  </g>
+  <circle cx="980" cy="70" r="4" fill="#84c13e"/>
+  <rect x="0" y="600" width="1440" height="300" fill="url(#floor)"/>
+</svg>
