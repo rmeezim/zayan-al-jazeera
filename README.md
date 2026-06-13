@@ -163,7 +163,7 @@ Derived from the company logo (blue, green, slate grey, white):
 | Ink | `#0c1a23` | dark sections, footer |
 | Paper | `#ffffff` / `#f3f7fa` | light surfaces |
 
-Type: **Bricolage Grotesque** (display) · **Inter** (body) · **Space Mono** (technical labels).
+Type: **Geist** (display headings) · **Inter** (body) · clean uppercase **Inter** for labels — a neutral modern grotesque matching the design inspiration.
 
 ---
 

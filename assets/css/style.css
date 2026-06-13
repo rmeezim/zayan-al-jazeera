@@ -31,9 +31,11 @@
   --head:       #0c1a23;   /* heading on light                    */
   --body:       #4c5b65;   /* body on light                       */
 
-  --font-display: "Bricolage Grotesque", "Inter", system-ui, sans-serif;
-  --font-body:    "Inter", system-ui, -apple-system, sans-serif;
-  --font-mono:    "Space Mono", ui-monospace, "SFMono-Regular", monospace;
+  --font-display: "Geist", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body:    "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* small uppercase labels — clean sans (matches the inspiration), not monospace */
+  --font-label:   "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono:    var(--font-label);
 
   --maxw: 1280px;
   --gut: clamp(20px, 5vw, 64px);
