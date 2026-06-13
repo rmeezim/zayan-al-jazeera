@@ -132,10 +132,15 @@ Implemented site-wide for maximum search visibility:
 
 The design is intentionally photo-ready. Replace these to finalise:
 
-1. **Photography** — the gradient/blueprint panels use the class `ph ph-1`…`ph-6`
-   (often with a `<span class="ph-label">…</span>` note). Swap each `<div class="ph …">`
-   for an `<img>` (keep the surrounding `.project-media` / `.post-media` / `.page-hero-visual`
-   wrapper so hover-zoom, parallax and reveal animations keep working).
+1. **Photography** — every image slot is now populated with a real demo photograph
+   (`<img class="ph-img" …>` from Unsplash, themed per section), sitting on top of an
+   on-brand gradient. If a photo ever fails to load, the inline `onerror` removes it and the
+   gradient shows through, so nothing can look broken. **Swap these for the client's own
+   project photography** by replacing each `src` (keep the `.ph-img` element and its
+   `.project-media` / `.post-media` / `.page-hero-visual` wrapper so hover-zoom, parallax and
+   reveal animations keep working). The hero image carries `fetchpriority="high"`.
+   Note: the demo photos load from Unsplash's CDN, so the preview needs an internet
+   connection. The contact page uses a keyless Google Maps embed.
 2. **Contact details** — phone `+966 11 000 0000`, emails (`info@`, `sales@`), the Riyadh
    address, WhatsApp number (`wa.me/...`) and business hours appear in the header menu,
    footer and contact page. Search-and-replace once details are confirmed.
