@@ -2,10 +2,9 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["claude/vigilant-sagan-84v9c4"]
+    branches: ["claude/amazing-einstein-iylg5u", "main"]
   workflow_dispatch:
 
-# Permissions the deploy needs
 permissions:
   contents: read
   pages: write
@@ -17,27 +16,48 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static export
+        env:
+          # Project-site base path so the GitHub Pages preview resolves assets.
+          # For the custom domain (zayanaljazeera.com) leave this empty and add a CNAME.
+          NEXT_PUBLIC_BASE_PATH: /zayan-al-jazeera
+        run: npm run build
+
+      - name: Disable Jekyll processing
+        run: touch out/.nojekyll
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-        with:
-          # Turn Pages on automatically (no manual settings needed)
-          enablement: true
-
-      - name: Upload site artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # The whole repo is the static site (no build step)
-          path: "."
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
