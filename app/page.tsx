@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/layout/JsonLd";
 import { servicesLd } from "@/lib/jsonld";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
+import { HeroImage } from "@/components/ui/HeroImage";
 import { Reveal } from "@/components/motion/Reveal";
 import { ClientsStrip } from "@/components/sections/ClientsStrip";
 import { ProcessSection } from "@/components/sections/ProcessSection";
@@ -27,8 +28,8 @@ export default function HomePage() {
       <JsonLd data={servicesLd()} />
 
       {/* ============ HERO ============ */}
-      <section className="flex min-h-[88vh] items-center bg-sand-50 pb-16 pt-[calc(var(--header-h)+3rem)]">
-        <div className="container-page grid w-full gap-x-16 gap-y-14 lg:grid-cols-[1.35fr_0.65fr] lg:items-center">
+      <section className="bg-sand-50">
+        <div className="container-page grid min-h-[88vh] items-center gap-x-14 gap-y-12 pb-16 pt-[calc(var(--header-h)+2.5rem)] lg:grid-cols-[1.5fr_0.9fr]">
           <div>
             <Reveal>
               <Eyebrow>{hero.eyebrow}</Eyebrow>
@@ -51,26 +52,33 @@ export default function HomePage() {
             </Reveal>
           </div>
 
-          <Reveal delay={0.22}>
-            <div className="grid grid-cols-2 gap-x-8 gap-y-10 lg:border-l lg:border-ink/15 lg:pl-12">
-              {stats.map((stat) => (
-                <div key={stat.label}>
-                  <div className="font-display text-4xl font-medium text-ink lg:text-5xl">
-                    {stat.value}
-                  </div>
-                  <div className="mt-2 text-sm leading-relaxed text-muted">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
+          <Reveal delay={0.2} className="lg:h-[68vh]">
+            <HeroImage className="h-[44vh] w-full lg:h-full" />
           </Reveal>
         </div>
       </section>
 
-      <div className="border-y border-ink/10 bg-paper py-12">
+      {/* stats */}
+      <section className="border-y border-ink/10 bg-paper py-14">
+        <div className="container-page grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4">
+          {stats.map((stat, i) => (
+            <Reveal key={stat.label} delay={i * 0.06}>
+              <div>
+                <div className="font-display text-4xl font-medium text-ink lg:text-5xl">
+                  {stat.value}
+                </div>
+                <div className="mt-2 max-w-[18ch] text-sm leading-relaxed text-muted">
+                  {stat.label}
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-sand-50 py-14">
         <ClientsStrip />
-      </div>
+      </section>
 
       {/* ============ INTRO / WELCOME ============ */}
       <section className="section bg-paper" aria-labelledby="intro-title">

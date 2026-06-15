@@ -110,16 +110,16 @@
     @apply text-[1.0625rem] leading-[1.7] text-muted;
   }
 
-  /* Eyebrow / label — refined muted micro-label with one small accent dot */
+  /* Eyebrow / label — dark uppercase text with a vertical accent bar */
   .eyebrow {
-    @apply inline-flex items-center gap-2.5 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-muted;
+    @apply inline-flex items-center gap-2.5 text-[0.78rem] font-semibold uppercase tracking-[0.1em] text-ink;
   }
   .eyebrow::before {
     content: "";
-    @apply inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-green;
+    @apply inline-block h-4 w-1 shrink-0 rounded-[1px] bg-green;
   }
   .eyebrow-light {
-    @apply text-muted-ondark;
+    @apply text-sand-50;
   }
 
   .label-cap {
