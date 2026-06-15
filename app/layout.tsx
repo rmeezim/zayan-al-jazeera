@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Hanken_Grotesk } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 import { site } from "@/content/site-content";
 import { Header } from "@/components/layout/Header";
@@ -7,15 +7,10 @@ import { Footer } from "@/components/layout/Footer";
 import { FloatingActions } from "@/components/layout/FloatingActions";
 import { JsonLd } from "@/components/layout/JsonLd";
 import { organizationLd, websiteLd } from "@/lib/jsonld";
-import { cn } from "@/lib/utils";
 
-const display = Bricolage_Grotesque({
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-});
-
-const sans = Hanken_Grotesk({
+// One clean geometric grotesque for the whole site (Urbis-style), with
+// personality coming from weight + scale rather than a second display face.
+const sans = Manrope({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
@@ -55,7 +50,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" dir="ltr" className={cn(display.variable, sans.variable)}>
+    <html lang="en" dir="ltr" className={sans.variable}>
       <body className="min-h-screen bg-sand-50">
         <JsonLd data={[organizationLd(), websiteLd()]} />
         <a href="#main" className="skip-link">

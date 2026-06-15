@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { site, contact, services, socials } from "@/content/site-content";
-import { BrandMark } from "@/components/ui/BrandMark";
+import { Wordmark } from "@/components/ui/BrandMark";
 import { Button } from "@/components/ui/Button";
 
 const companyLinks = [
@@ -20,7 +20,7 @@ export function Footer() {
           {/* brand */}
           <div>
             <Link href="/" aria-label="Zayan Al-Jazeera — home" className="inline-flex">
-              <BrandMark className="h-11 w-11" />
+              <Wordmark light />
             </Link>
             <p className="mt-6 max-w-xs leading-relaxed text-muted-ondark">
               With over a decade of experience in construction, we partner with
@@ -109,7 +109,7 @@ export function Footer() {
       {/* giant wordmark */}
       <div className="container-page overflow-hidden pb-6" aria-hidden="true">
         <div className="flex select-none items-end justify-between gap-6 leading-[0.74]">
-          <span className="font-display text-[25vw] font-semibold tracking-[-0.03em] text-sand-50 lg:text-[21vw]">
+          <span className="font-display text-[25vw] font-medium tracking-[-0.03em] text-sand-50 lg:text-[21vw]">
             ZAYAN
           </span>
           <span className="mb-[2.5vw] hidden text-right text-label font-semibold uppercase tracking-[0.18em] text-green-bright sm:block">

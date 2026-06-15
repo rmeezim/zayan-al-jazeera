@@ -30,7 +30,12 @@
     color: theme("colors.sand.50");
   }
 
-  h1, h2, h3, h4 {
+  h1 {
+    @apply font-display font-normal text-ink;
+    text-wrap: balance;
+  }
+
+  h2, h3, h4 {
     @apply font-display font-medium text-ink;
     text-wrap: balance;
   }
@@ -87,10 +92,10 @@
 
   /* Typography */
   .t-display {
-    @apply font-display font-semibold text-display;
+    @apply font-display font-normal text-display;
   }
   .t-h1 {
-    @apply font-display font-medium text-h1;
+    @apply font-display font-normal text-h1;
   }
   .t-h2 {
     @apply font-display font-medium text-h2;

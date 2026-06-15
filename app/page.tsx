@@ -33,9 +33,7 @@ export default function HomePage() {
             <Eyebrow>{hero.eyebrow}</Eyebrow>
           </Reveal>
           <Reveal delay={0.06}>
-            <h1 className="mt-8 max-w-[16ch] font-semibold text-display">
-              {hero.title}
-            </h1>
+            <h1 className="mt-8 max-w-[16ch] text-display">{hero.title}</h1>
           </Reveal>
 
           <div className="mt-10 grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:items-end">

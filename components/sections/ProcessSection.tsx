@@ -39,8 +39,8 @@ export function ProcessSection() {
                 >
                   <span
                     className={cn(
-                      "font-display text-4xl font-semibold",
-                      highlight ? "text-ink" : "text-ink/15",
+                      "font-display text-4xl font-medium",
+                      highlight ? "text-ink" : "text-ink/20",
                     )}
                   >
                     {step.n}

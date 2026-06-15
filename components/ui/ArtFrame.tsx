@@ -84,7 +84,7 @@ export function ArtFrame({
       <div className="relative">
         <div
           className={cn(
-            "font-display font-semibold leading-[0.95]",
+            "font-display font-medium leading-[0.95]",
             figure ? "text-[clamp(3.5rem,9vw,6rem)]" : "text-[clamp(1.6rem,3vw,2.4rem)]",
             dark ? "text-sand-50" : "text-ink",
           )}

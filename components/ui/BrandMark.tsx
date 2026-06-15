@@ -1,8 +1,23 @@
 import { cn } from "@/lib/utils";
 
-/** Inline brand mark (the Z lettermark) — no external file, so it is
- *  immune to base-path issues and always crisp. */
-export function BrandMark({ className }: { className?: string }) {
+// Brand colours from the official Zayan Al-Jazeera logo.
+const LOGO_GREEN = "#8CC63F";
+const LOGO_BLUE = "#29ABE2";
+const LOGO_GREY = "#808285";
+
+/**
+ * Brand mark (the Z lettermark). Interim SVG recreation — the official artwork
+ * couldn't be read from the chat upload in this environment; drop the real file
+ * in to public/brand/ to swap it (see GAPS.md). `white` renders the footer
+ * variant.
+ */
+export function BrandMark({
+  className,
+  white = false,
+}: {
+  className?: string;
+  white?: boolean;
+}) {
   return (
     <svg
       viewBox="0 0 48 48"
@@ -10,18 +25,25 @@ export function BrandMark({ className }: { className?: string }) {
       role="img"
       aria-label="Zayan Al-Jazeera"
     >
-      <defs>
-        <linearGradient id="zaj-mark" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#3cb2e7" />
-          <stop offset="1" stopColor="#1480b6" />
-        </linearGradient>
-      </defs>
-      <rect x="1" y="1" width="46" height="46" rx="11" fill="url(#zaj-mark)" />
-      <path
-        d="M11 10 H37 V16.5 L24.5 30 H37 V38 H11 V31.5 L23.2 18 H11 Z"
-        fill="#ffffff"
-      />
-      <path d="M30 30 H38 L31 38 H23 Z" fill="#84c13e" />
+      {white ? (
+        <>
+          <rect x="1.5" y="1.5" width="45" height="45" rx="11" fill="none" stroke="#fff" strokeWidth="2" />
+          <path d="M11 10 H37 V16.5 L24.5 30 H37 V38 H11 V31.5 L23.2 18 H11 Z" fill="#fff" />
+          <path d="M30 30 H38 L31 38 H23 Z" fill="#fff" />
+        </>
+      ) : (
+        <>
+          <defs>
+            <linearGradient id="zaj-mark" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stopColor="#3cb6ec" />
+              <stop offset="1" stopColor="#1f93cf" />
+            </linearGradient>
+          </defs>
+          <rect x="1" y="1" width="46" height="46" rx="11" fill="url(#zaj-mark)" />
+          <path d="M11 10 H37 V16.5 L24.5 30 H37 V38 H11 V31.5 L23.2 18 H11 Z" fill="#ffffff" />
+          <path d="M30 30 H38 L31 38 H23 Z" fill={LOGO_GREEN} />
+        </>
+      )}
     </svg>
   );
 }
@@ -34,24 +56,18 @@ export function Wordmark({
   light?: boolean;
 }) {
   return (
-    <span
-      className={cn(
-        "flex items-center gap-2.5 font-display font-semibold tracking-tight",
-        className,
-      )}
-    >
-      <BrandMark className="h-9 w-9" />
-      <span className="flex flex-col leading-none">
-        <span className={cn("text-[1.05rem]", light ? "text-paper" : "text-ink")}>
-          ZAYAN
+    <span className={cn("flex items-center gap-2.5", className)}>
+      <BrandMark className="h-9 w-9 shrink-0" white={light} />
+      <span className="flex flex-col leading-[1.06]">
+        <span className="flex items-baseline gap-1.5 text-[1.02rem] font-bold tracking-tight">
+          <span style={{ color: light ? "#fff" : LOGO_GREEN }}>ZAYAN</span>
+          <span style={{ color: light ? "#fff" : LOGO_BLUE }}>AL-JAZEERA</span>
         </span>
         <span
-          className={cn(
-            "text-[0.62rem] font-medium tracking-[0.22em]",
-            light ? "text-muted-ondark" : "text-muted",
-          )}
+          className="text-[0.56rem] font-semibold uppercase tracking-[0.24em]"
+          style={{ color: light ? "rgba(255,255,255,0.7)" : LOGO_GREY }}
         >
-          AL-JAZEERA
+          Company Ltd
         </span>
       </span>
     </span>
