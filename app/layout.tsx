@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Schibsted_Grotesk, Geist, Geist_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import { site } from "@/content/site-content";
 import { Header } from "@/components/layout/Header";
@@ -9,21 +9,15 @@ import { JsonLd } from "@/components/layout/JsonLd";
 import { organizationLd, websiteLd } from "@/lib/jsonld";
 import { cn } from "@/lib/utils";
 
-const display = Schibsted_Grotesk({
+const display = Bricolage_Grotesque({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
 });
 
-const sans = Geist({
+const sans = Hanken_Grotesk({
   subsets: ["latin"],
   variable: "--font-sans",
-  display: "swap",
-});
-
-const mono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
   display: "swap",
 });
 
@@ -61,8 +55,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" dir="ltr" className={cn(display.variable, sans.variable, mono.variable)}>
-      <body className="min-h-screen bg-paper">
+    <html lang="en" dir="ltr" className={cn(display.variable, sans.variable)}>
+      <body className="min-h-screen bg-sand-50">
         <JsonLd data={[organizationLd(), websiteLd()]} />
         <a href="#main" className="skip-link">
           Skip to content

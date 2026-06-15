@@ -6,7 +6,6 @@ import { JsonLd } from "@/components/layout/JsonLd";
 import { servicesLd } from "@/lib/jsonld";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
-import { HeroArt } from "@/components/ui/HeroArt";
 import { Reveal } from "@/components/motion/Reveal";
 import { ClientsStrip } from "@/components/sections/ClientsStrip";
 import { ProcessSection } from "@/components/sections/ProcessSection";
@@ -28,47 +27,30 @@ export default function HomePage() {
       <JsonLd data={servicesLd()} />
 
       {/* ============ HERO ============ */}
-      <section className="relative overflow-hidden bg-sand-50 pb-section pt-[calc(var(--header-h)+3.5rem)]">
-        <div
-          className="pointer-events-none absolute inset-0 blueprint opacity-[0.04]"
-          aria-hidden="true"
-        />
-        <div className="container-page relative">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
-            <div>
-              <Reveal>
-                <Eyebrow>{hero.eyebrow}</Eyebrow>
-              </Reveal>
-              <Reveal delay={0.06}>
-                <h1 className="mt-6 text-display">
-                  We are a{" "}
-                  <span className="border-b-[6px] border-green pb-1">
-                    full-service
-                  </span>{" "}
-                  renovation company.
-                </h1>
-              </Reveal>
-              <Reveal delay={0.12}>
-                <p className="mt-7 max-w-xl text-lead text-muted">{hero.lead}</p>
-              </Reveal>
-              <Reveal delay={0.18}>
-                <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                  <Button href={hero.primaryCta.href} size="lg" arrow>
-                    {hero.primaryCta.label}
-                  </Button>
-                  <Button
-                    href={hero.secondaryCta.href}
-                    variant="ghost"
-                    size="lg"
-                  >
-                    {hero.secondaryCta.label}
-                  </Button>
-                </div>
-              </Reveal>
-            </div>
+      <section className="bg-sand-50 pb-section-sm pt-[calc(var(--header-h)+4rem)]">
+        <div className="container-page">
+          <Reveal>
+            <Eyebrow>{hero.eyebrow}</Eyebrow>
+          </Reveal>
+          <Reveal delay={0.06}>
+            <h1 className="mt-8 max-w-[16ch] font-semibold text-display">
+              {hero.title}
+            </h1>
+          </Reveal>
 
-            <Reveal delay={0.15}>
-              <HeroArt className="aspect-[4/5] w-full sm:aspect-[5/4] lg:aspect-[4/5]" />
+          <div className="mt-10 grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:items-end">
+            <Reveal delay={0.12}>
+              <p className="max-w-xl text-lead text-muted">{hero.lead}</p>
+            </Reveal>
+            <Reveal delay={0.18}>
+              <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
+                <Button href={hero.primaryCta.href} size="lg" arrow>
+                  {hero.primaryCta.label}
+                </Button>
+                <Button href={hero.secondaryCta.href} variant="ghost" size="lg">
+                  {hero.secondaryCta.label}
+                </Button>
+              </div>
             </Reveal>
           </div>
         </div>
@@ -81,48 +63,45 @@ export default function HomePage() {
       {/* ============ INTRO / WELCOME ============ */}
       <section className="section bg-paper" aria-labelledby="intro-title">
         <div className="container-page">
-          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+          <div className="grid gap-x-20 gap-y-10 lg:grid-cols-[0.85fr_1.15fr]">
             <div>
               <Reveal>
                 <Eyebrow>{intro.eyebrow}</Eyebrow>
               </Reveal>
               <Reveal delay={0.05}>
-                <h2 id="intro-title" className="mt-5 text-h2">
+                <h2 id="intro-title" className="mt-6 text-h2">
                   {intro.title}
                 </h2>
               </Reveal>
             </div>
-            <div className="lg:pt-2">
+            <div className="lg:pt-3">
               {intro.body.map((para, i) => (
                 <Reveal key={i} delay={0.08 + i * 0.06}>
-                  <p
-                    className={i === 0 ? "text-lead text-ink" : "mt-5 text-body"}
-                  >
+                  <p className={i === 0 ? "text-lead text-ink" : "mt-6 t-body"}>
                     {para}
                   </p>
                 </Reveal>
               ))}
               <Reveal delay={0.24}>
-                <Link
-                  href={intro.cta.href}
-                  className="link-arrow mt-8 inline-flex"
-                >
+                <Link href={intro.cta.href} className="link-arrow mt-9 inline-flex">
                   <span className="underline-grow">{intro.cta.label}</span>
-                  <span aria-hidden="true">↗</span>
+                  <span aria-hidden="true">→</span>
                 </Link>
               </Reveal>
             </div>
           </div>
 
-          {/* stats */}
-          <div className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-md border border-ink/10 bg-ink/10 lg:grid-cols-4">
+          {/* stats — airy, no bordered grid */}
+          <div className="mt-20 grid grid-cols-2 gap-x-8 gap-y-12 border-t border-ink/10 pt-14 lg:grid-cols-4">
             {stats.map((stat, i) => (
               <Reveal key={stat.label} delay={i * 0.06}>
-                <div className="h-full bg-paper p-7">
-                  <div className="font-display text-4xl font-semibold text-ink lg:text-5xl">
+                <div>
+                  <div className="font-display text-5xl font-medium text-ink lg:text-6xl">
                     {stat.value}
                   </div>
-                  <div className="mt-3 text-sm text-muted">{stat.label}</div>
+                  <div className="mt-3 max-w-[18ch] text-sm leading-relaxed text-muted">
+                    {stat.label}
+                  </div>
                 </div>
               </Reveal>
             ))}
@@ -139,47 +118,35 @@ export default function HomePage() {
                 <Eyebrow>{servicesIntro.eyebrow}</Eyebrow>
               </Reveal>
               <Reveal delay={0.05}>
-                <h2 id="services-title" className="mt-5 text-h2">
+                <h2 id="services-title" className="mt-6 text-h2">
                   {servicesIntro.title}
                 </h2>
               </Reveal>
             </div>
             <Reveal delay={0.1}>
-              <p className="text-body lg:pb-2">{servicesIntro.lead}</p>
+              <p className="t-body lg:pb-2">{servicesIntro.lead}</p>
             </Reveal>
           </div>
 
-          <div className="mt-12 border-t border-ink/10">
+          <div className="mt-14 border-t border-ink/15">
             {services.map((service, i) => (
               <Reveal key={service.slug} delay={i * 0.06}>
                 <Link
                   href={`/services#${service.slug}`}
-                  className="group grid items-start gap-4 border-b border-ink/10 py-8 transition-colors hover:bg-paper/60 sm:grid-cols-[auto_1fr_auto] sm:gap-8 sm:px-4"
+                  className="group grid items-baseline gap-4 border-b border-ink/15 py-9 transition-colors sm:grid-cols-[auto_1fr_auto] sm:gap-10"
                 >
-                  <span className="font-mono text-label uppercase text-brand">
-                    {service.n}
-                  </span>
+                  <span className="label-cap text-brand">{service.n}</span>
                   <div>
-                    <h3 className="font-display text-2xl font-medium text-ink lg:text-3xl">
+                    <h3 className="font-display text-2xl font-medium text-ink transition-colors group-hover:text-brand lg:text-[2rem]">
                       {service.short}
                     </h3>
-                    <p className="mt-3 max-w-2xl text-body">{service.summary}</p>
+                    <p className="mt-4 max-w-2xl t-body">{service.summary}</p>
                   </div>
                   <span
-                    className="mt-1 hidden h-11 w-11 shrink-0 items-center justify-center rounded-full border border-ink/15 text-ink transition-all duration-300 group-hover:border-green group-hover:bg-green sm:flex"
+                    className="hidden self-center text-2xl text-ink/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-brand sm:block"
                     aria-hidden="true"
                   >
-                    <svg
-                      viewBox="0 0 24 24"
-                      width="18"
-                      height="18"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    >
-                      <path d="M7 17 17 7M9 7h8v8" />
-                    </svg>
+                    →
                   </span>
                 </Link>
               </Reveal>

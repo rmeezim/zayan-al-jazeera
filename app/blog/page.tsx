@@ -117,6 +117,7 @@ export default function BlogIndexPage() {
                     <ArtFrame
                       motif={motifForCategory(post.category)}
                       tone={i % 2 === 0 ? "petrol" : "deep"}
+                      label={post.category}
                       aspect="16 / 10"
                       className="w-full"
                     />

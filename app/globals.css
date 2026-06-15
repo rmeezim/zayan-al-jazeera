@@ -21,18 +21,17 @@
   }
 
   body {
-    @apply bg-paper text-ink font-sans antialiased;
-    font-feature-settings: "ss01", "cv01";
+    @apply bg-sand-50 text-ink font-sans antialiased;
     text-rendering: optimizeLegibility;
   }
 
   ::selection {
     background: theme("colors.ink.DEFAULT");
-    color: #fff;
+    color: theme("colors.sand.50");
   }
 
   h1, h2, h3, h4 {
-    @apply font-display font-semibold text-ink;
+    @apply font-display font-medium text-ink;
     text-wrap: balance;
   }
 
@@ -73,11 +72,10 @@
    ============================================================ */
 @layer components {
   .container-page {
-    @apply mx-auto w-full max-w-wide px-5 sm:px-8 lg:px-12;
+    @apply mx-auto w-full max-w-wide px-5 sm:px-8 lg:px-14;
   }
-
   .container-narrow {
-    @apply mx-auto w-full max-w-container px-5 sm:px-8 lg:px-12;
+    @apply mx-auto w-full max-w-container px-5 sm:px-8 lg:px-14;
   }
 
   .section {
@@ -87,15 +85,15 @@
     @apply py-section-sm;
   }
 
-  /* Typography helpers */
+  /* Typography */
   .t-display {
     @apply font-display font-semibold text-display;
   }
   .t-h1 {
-    @apply font-display font-semibold text-h1;
+    @apply font-display font-medium text-h1;
   }
   .t-h2 {
-    @apply font-display font-semibold text-h2;
+    @apply font-display font-medium text-h2;
   }
   .t-h3 {
     @apply font-display font-medium text-h3;
@@ -104,48 +102,47 @@
     @apply text-lead text-muted;
   }
   .t-body {
-    @apply text-[1.0625rem] leading-relaxed text-muted;
+    @apply text-[1.0625rem] leading-[1.7] text-muted;
   }
 
-  /* Eyebrow / section label — mono with a green datum mark (no pills) */
+  /* Eyebrow / label — warm editorial small-caps with a green datum mark */
   .eyebrow {
-    @apply inline-flex items-center gap-3 font-mono text-label font-medium uppercase text-muted;
+    @apply inline-flex items-center gap-3 text-label font-semibold uppercase text-brand;
   }
   .eyebrow::before {
     content: "";
-    @apply inline-block h-[2px] w-7 bg-green align-middle;
+    @apply inline-block h-px w-8 bg-green align-middle;
   }
   .eyebrow-light {
-    @apply text-muted-ondark;
+    @apply text-green-bright;
   }
 
-  .section-index {
-    @apply font-mono text-label font-medium uppercase text-brand;
+  .label-cap {
+    @apply text-label font-semibold uppercase tracking-[0.14em] text-muted;
   }
 
   /* Buttons — rounded rectangles, never pills */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded font-medium leading-none
+    @apply inline-flex items-center justify-center gap-2 rounded-DEFAULT font-medium leading-none
            transition-all duration-300 ease-smooth select-none
            px-6 py-3.5 text-[0.95rem] disabled:opacity-60 disabled:pointer-events-none;
   }
   .btn-primary {
-    @apply bg-ink text-paper hover:bg-ink-700 shadow-soft hover:-translate-y-0.5;
+    @apply bg-ink text-sand-50 hover:bg-ink-700 hover:-translate-y-0.5;
   }
   .btn-accent {
     @apply bg-green text-ink hover:bg-green-600 hover:-translate-y-0.5;
   }
   .btn-ghost {
-    @apply border border-ink/20 text-ink hover:border-ink hover:bg-ink hover:text-paper;
+    @apply border border-ink/25 text-ink hover:border-ink hover:bg-ink hover:text-sand-50;
   }
   .btn-ghost-light {
-    @apply border border-paper/30 text-paper hover:bg-paper hover:text-ink;
+    @apply border border-sand-50/30 text-sand-50 hover:bg-sand-50 hover:text-ink;
   }
   .btn-lg {
     @apply px-7 py-4 text-base;
   }
 
-  /* Text link with animated underline */
   .link-arrow {
     @apply inline-flex items-center gap-2 font-medium text-ink transition-colors hover:text-brand;
   }
@@ -161,7 +158,6 @@
     @apply scale-x-100;
   }
 
-  /* Cards */
   .card {
     @apply rounded-md border border-ink/10 bg-paper p-7 transition-all duration-300 ease-smooth;
   }
@@ -169,17 +165,16 @@
     @apply hover:border-ink/20 hover:shadow-lift hover:-translate-y-1;
   }
 
-  /* Hairline rule */
   .hairline {
     @apply h-px w-full bg-ink/10;
   }
 
   /* Form fields */
   .field-label {
-    @apply mb-2 block font-mono text-label font-medium uppercase text-muted;
+    @apply mb-2 block text-label font-semibold uppercase tracking-[0.12em] text-muted;
   }
   .field {
-    @apply w-full rounded border border-ink/20 bg-paper px-4 py-3 text-ink
+    @apply w-full rounded-DEFAULT border border-ink/20 bg-paper px-4 py-3 text-ink
            placeholder:text-muted-light transition-colors duration-200
            focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand;
   }
@@ -187,23 +182,22 @@
     @apply border-red-500/70 focus:border-red-500 focus:ring-red-500;
   }
 
-  /* Skip link */
   .skip-link {
     @apply sr-only;
   }
   .skip-link:focus {
-    @apply not-sr-only fixed left-4 top-4 z-[100] rounded bg-ink px-4 py-2 text-paper;
+    @apply not-sr-only fixed left-4 top-4 z-[100] rounded-DEFAULT bg-ink px-4 py-2 text-sand-50;
   }
 
   /* Long-form content (blog / privacy) */
   .prose-rich {
-    @apply text-[1.0625rem] leading-[1.75] text-muted;
+    @apply text-[1.075rem] leading-[1.8] text-muted;
   }
   .prose-rich > * + * {
     @apply mt-6;
   }
   .prose-rich h2 {
-    @apply mt-12 text-h3 text-ink;
+    @apply mt-14 text-h3 text-ink;
   }
   .prose-rich h3 {
     @apply mt-10 font-display text-xl font-medium text-ink;
@@ -212,20 +206,20 @@
     @apply text-brand underline underline-offset-4 hover:text-brand-deep;
   }
   .prose-rich ul {
-    @apply space-y-2 ps-1;
+    @apply space-y-2.5 ps-1;
   }
   .prose-rich li {
     @apply relative ps-6;
   }
   .prose-rich li::before {
     content: "";
-    @apply absolute left-0 top-[0.6em] h-[6px] w-[6px] -translate-y-1/2 bg-green;
+    @apply absolute left-0 top-[0.7em] h-1.5 w-1.5 -translate-y-1/2 bg-green;
   }
   .prose-rich strong {
     @apply font-semibold text-ink;
   }
   .prose-rich blockquote {
-    @apply border-s-2 border-green ps-6 font-display text-xl font-medium text-ink;
+    @apply my-8 border-s-2 border-green ps-6 font-display text-2xl font-medium leading-snug text-ink;
   }
 }
 
@@ -233,57 +227,11 @@
    UTILITIES
    ============================================================ */
 @layer utilities {
-  /* Blueprint grid backdrop */
-  .blueprint {
-    background-image:
-      linear-gradient(theme("colors.ink.DEFAULT") 1px, transparent 1px),
-      linear-gradient(90deg, theme("colors.ink.DEFAULT") 1px, transparent 1px);
-    background-size: 56px 56px;
-    background-position: center;
-  }
-  .blueprint-light {
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.7) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.7) 1px, transparent 1px);
-    background-size: 56px 56px;
-  }
-
-  /* Venetian-blind transition into a dark section (signature) */
-  .venetian {
-    background-image: repeating-linear-gradient(
-      to bottom,
-      theme("colors.ink.DEFAULT") 0 3px,
-      transparent 3px 13px
-    );
-    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 92%);
-    mask-image: linear-gradient(to bottom, transparent, #000 92%);
-  }
-  .venetian-light {
-    background-image: repeating-linear-gradient(
-      to bottom,
-      #fff 0 3px,
-      transparent 3px 13px
-    );
-    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 90%);
-    mask-image: linear-gradient(to bottom, transparent, #000 90%);
-  }
-
   .text-balance {
     text-wrap: balance;
   }
-
-  /* Subtle film grain for depth on dark fields */
-  .grain::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.035;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-
   .mask-fade-r {
-    -webkit-mask-image: linear-gradient(to right, #000 80%, transparent);
-    mask-image: linear-gradient(to right, #000 80%, transparent);
+    -webkit-mask-image: linear-gradient(to right, #000 78%, transparent);
+    mask-image: linear-gradient(to right, #000 78%, transparent);
   }
 }

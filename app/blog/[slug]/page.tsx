@@ -180,6 +180,7 @@ export default async function ArticlePage({
                     <ArtFrame
                       motif={motifForCategory(p.category)}
                       tone={i % 2 === 0 ? "petrol" : "deep"}
+                      label={p.category}
                       aspect="16 / 9"
                       className="w-full"
                     />

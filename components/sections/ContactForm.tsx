@@ -130,7 +130,7 @@ export function ContactForm() {
 
       <div>
         <label className="flex items-start gap-3 text-sm text-muted">
-          <input type="checkbox" name="consent" value="yes" className="mt-1 h-4 w-4 shrink-0 accent-[#15749B]" aria-invalid={!!errors.consent} aria-describedby={errors.consent ? "consent-err" : undefined} />
+          <input type="checkbox" name="consent" value="yes" className="mt-1 h-4 w-4 shrink-0 accent-[#3E6019]" aria-invalid={!!errors.consent} aria-describedby={errors.consent ? "consent-err" : undefined} />
           <span>
             I agree that Zayan Al-Jazeera may use these details to respond to my
             enquiry, per the{" "}

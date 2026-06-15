@@ -9,6 +9,7 @@ import { ArtFrame } from "@/components/ui/ArtFrame";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = createMetadata({
   title: "Our Work",
@@ -17,12 +18,7 @@ export const metadata: Metadata = createMetadata({
   path: "/work",
 });
 
-const sectorVisuals = [
-  { a: "interior", b: "build" },
-  { a: "systems", b: "grounds" },
-  { a: "systems", b: "build" },
-  { a: "interior", b: "grounds" },
-] as const;
+const tones = ["petrol", "deep", "sand", "petrol"] as const;
 
 export default function WorkPage() {
   return (
@@ -41,56 +37,49 @@ export default function WorkPage() {
         current="Our Work"
       />
 
-      {/* sectors — editorial portfolio list */}
+      {/* sectors — editorial list */}
       <section className="section bg-paper" aria-labelledby="sectors-title">
         <div className="container-page">
-          <div className="flex items-end justify-between gap-6">
+          <div className="flex flex-wrap items-end justify-between gap-6">
             <Reveal>
               <h2 id="sectors-title" className="max-w-xl text-h2">
                 What we deliver
               </h2>
             </Reveal>
-            <Reveal delay={0.05} className="hidden sm:block">
-              <span className="font-mono text-label uppercase text-muted">
-                Across the Kingdom
-              </span>
+            <Reveal delay={0.05}>
+              <span className="label-cap">Across the Kingdom</span>
             </Reveal>
           </div>
 
-          <div className="mt-12 border-t border-ink/10">
-            {work.sectors.map((sector, i) => (
-              <Reveal key={sector.title} delay={i * 0.05}>
-                <article className="grid gap-8 border-b border-ink/10 py-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-12">
-                  <div>
-                    <span className="font-mono text-label uppercase text-brand">
-                      {sector.n}
-                    </span>
-                    <h3 className="mt-4 font-display text-2xl font-medium text-ink lg:text-3xl">
-                      {sector.title}
-                    </h3>
-                    <p className="mt-4 max-w-md text-body">{sector.desc}</p>
-                  </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <ArtFrame
-                      motif={sectorVisuals[i].a}
-                      tone={i % 2 === 0 ? "petrol" : "deep"}
-                      aspect="4 / 3"
-                    />
-                    <ArtFrame
-                      motif={sectorVisuals[i].b}
-                      tone="sand"
-                      aspect="4 / 3"
-                    />
-                  </div>
-                </article>
-              </Reveal>
-            ))}
+          <div className="mt-16 space-y-16 lg:space-y-24">
+            {work.sectors.map((sector, i) => {
+              const reversed = i % 2 === 1;
+              return (
+                <Reveal key={sector.title} delay={0.04}>
+                  <article className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
+                    <div className={cn(reversed && "lg:order-2")}>
+                      <ArtFrame
+                        tone={tones[i]}
+                        figure={sector.n}
+                        label={sector.title}
+                        aspect="3 / 2"
+                      />
+                    </div>
+                    <div className={cn(reversed && "lg:order-1")}>
+                      <span className="label-cap text-brand">Sector {sector.n}</span>
+                      <h3 className="mt-4 text-h3 lg:text-[2rem]">{sector.title}</h3>
+                      <p className="mt-5 max-w-md t-body">{sector.desc}</p>
+                    </div>
+                  </article>
+                </Reveal>
+              );
+            })}
           </div>
 
           {/* honest note about case studies */}
           <Reveal>
-            <div className="mt-12 flex flex-col items-start justify-between gap-6 rounded-lg border border-ink/10 bg-sand-50 p-8 sm:flex-row sm:items-center">
-              <p className="max-w-xl text-body">
+            <div className="mt-20 flex flex-col items-start justify-between gap-6 rounded-lg border border-ink/10 bg-sand-50 p-8 sm:flex-row sm:items-center lg:p-10">
+              <p className="max-w-xl t-body">
                 Detailed project case studies and on-site photography are
                 available on request — tell us about your sector and we&apos;ll
                 share the most relevant work.
@@ -103,24 +92,21 @@ export default function WorkPage() {
         </div>
       </section>
 
-      {/* clients */}
+      {/* clients — airy */}
       <section className="section bg-sand" aria-labelledby="clients-title">
         <div className="container-page">
           <Reveal>
             <Eyebrow>Selected clients</Eyebrow>
           </Reveal>
           <Reveal delay={0.05}>
-            <h2 id="clients-title" className="mt-5 max-w-2xl text-h2">
+            <h2 id="clients-title" className="mt-6 max-w-2xl text-h2">
               Trusted by leading operators across Saudi Arabia.
             </h2>
           </Reveal>
 
-          <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-md border border-ink/10 bg-ink/10 md:grid-cols-3 lg:grid-cols-5">
+          <div className="mt-14 grid grid-cols-2 gap-x-10 gap-y-10 border-t border-ink/15 pt-12 sm:grid-cols-3 lg:grid-cols-5">
             {clients.map((name) => (
-              <div
-                key={name}
-                className="flex min-h-28 items-center justify-center bg-paper p-6 text-center font-display text-lg font-medium text-ink/80"
-              >
+              <div key={name} className="font-display text-xl font-medium text-ink/75 lg:text-2xl">
                 {name}
               </div>
             ))}

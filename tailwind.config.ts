@@ -1,9 +1,9 @@
 import type { Config } from "tailwindcss";
 
 /**
- * Single source of truth for the Zayan Al-Jazeera design system.
- * Palette is derived from the brand mark (petrol-blue + green) and warmed
- * with a sand neutral to match the editorial art direction.
+ * Design tokens — warm editorial direction (cream + espresso + earthy green).
+ * Single source of truth. Palette keeps the brand's green; the brand blue lives
+ * only in the logo mark. No cool corporate blue, no grid/texture backgrounds.
  */
 const config: Config = {
   content: [
@@ -16,75 +16,76 @@ const config: Config = {
     extend: {
       colors: {
         paper: "#FFFFFF",
-        // warm editorial neutrals (the "blush" equivalent, on-brand-warm)
+        // warm cream neutrals (the editorial warmth)
         sand: {
-          DEFAULT: "#F5F0E8",
-          50: "#FAF7F1",
-          100: "#F5F0E8",
-          200: "#EAE1D2",
-          300: "#DBCEB8",
+          DEFAULT: "#F3ECDD",
+          50: "#FAF6EE",
+          100: "#F3ECDD",
+          200: "#E7DCC6",
+          300: "#D6C6A8",
         },
-        // deep petrol-blue — the brand blue, matured for dark surfaces
+        // warm espresso/charcoal darks
         ink: {
-          DEFAULT: "#0B2530",
-          900: "#08202A",
-          800: "#0B2530",
-          700: "#11323F",
-          600: "#1A4250",
-          500: "#28586A",
+          DEFAULT: "#1F1A13",
+          900: "#15110C",
+          800: "#1F1A13",
+          700: "#2B251B",
+          600: "#3C3428",
+          500: "#4F4639",
         },
-        // slate body text
+        // warm taupe-grey body text
         muted: {
-          DEFAULT: "#51626A",
-          light: "#7C8B92",
-          ondark: "#9FB2B9",
+          DEFAULT: "#6A6253",
+          light: "#968B7A",
+          ondark: "#B9AF9E",
         },
-        // brand blue — interactive / accent text on light (WCAG AA)
+        // earthy green — text/labels/links accent (AA on cream & white)
         brand: {
-          DEFAULT: "#15749B",
-          bright: "#1E90C9",
-          deep: "#0F5C7C",
+          DEFAULT: "#3E6019",
+          bright: "#5E8A26",
+          deep: "#2E480F",
         },
-        // brand green — the bold signature accent (used as fills/marks)
+        // leaf green — fills, ticks, the one highlighted moment (ink text on top)
         green: {
-          DEFAULT: "#84C13E",
-          600: "#6FAE2C",
-          700: "#5C9322",
+          DEFAULT: "#6FA12E",
+          600: "#5E8A26",
+          700: "#4C7020",
+          bright: "#84C13E",
         },
       },
       fontFamily: {
-        display: ["var(--font-display)", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "Georgia", "serif"],
         sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
-        mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
+        // De-techified: micro labels render in the warm sans, not a code mono.
+        mono: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       fontSize: {
-        // fluid editorial scale
-        display: ["clamp(2.75rem, 6.5vw, 6rem)", { lineHeight: "0.98", letterSpacing: "-0.03em" }],
-        h1: ["clamp(2.25rem, 4.6vw, 4rem)", { lineHeight: "1.02", letterSpacing: "-0.025em" }],
-        h2: ["clamp(1.85rem, 3.4vw, 3rem)", { lineHeight: "1.06", letterSpacing: "-0.02em" }],
-        h3: ["clamp(1.35rem, 1.8vw, 1.7rem)", { lineHeight: "1.18", letterSpacing: "-0.01em" }],
-        lead: ["clamp(1.08rem, 1.35vw, 1.3rem)", { lineHeight: "1.55", letterSpacing: "-0.005em" }],
-        label: ["0.74rem", { lineHeight: "1", letterSpacing: "0.16em" }],
+        display: ["clamp(2.9rem, 6.8vw, 6.5rem)", { lineHeight: "1.0", letterSpacing: "-0.02em" }],
+        h1: ["clamp(2.3rem, 4.6vw, 4.25rem)", { lineHeight: "1.04", letterSpacing: "-0.018em" }],
+        h2: ["clamp(1.9rem, 3.4vw, 3.1rem)", { lineHeight: "1.08", letterSpacing: "-0.015em" }],
+        h3: ["clamp(1.35rem, 1.9vw, 1.8rem)", { lineHeight: "1.2", letterSpacing: "-0.01em" }],
+        lead: ["clamp(1.12rem, 1.4vw, 1.4rem)", { lineHeight: "1.6", letterSpacing: "-0.003em" }],
+        label: ["0.76rem", { lineHeight: "1", letterSpacing: "0.14em" }],
       },
       maxWidth: {
         container: "1240px",
-        wide: "1400px",
-        prose: "68ch",
+        wide: "1440px",
+        prose: "66ch",
       },
       borderRadius: {
         sm: "4px",
         DEFAULT: "8px",
-        md: "10px",
-        lg: "14px",
-        xl: "20px",
+        md: "12px",
+        lg: "16px",
+        xl: "24px",
       },
       boxShadow: {
-        soft: "0 1px 2px rgba(11,37,48,0.04), 0 8px 28px -12px rgba(11,37,48,0.12)",
-        lift: "0 2px 6px rgba(11,37,48,0.06), 0 22px 50px -20px rgba(11,37,48,0.22)",
+        soft: "0 1px 2px rgba(31,26,19,0.04), 0 10px 30px -16px rgba(31,26,19,0.18)",
+        lift: "0 2px 8px rgba(31,26,19,0.05), 0 26px 56px -24px rgba(31,26,19,0.26)",
       },
       spacing: {
-        section: "clamp(4.5rem, 9vw, 8.5rem)",
-        "section-sm": "clamp(3rem, 6vw, 5rem)",
+        section: "clamp(5.5rem, 11vw, 10rem)",
+        "section-sm": "clamp(3.5rem, 6vw, 5.5rem)",
       },
       transitionTimingFunction: {
         smooth: "cubic-bezier(0.22, 1, 0.36, 1)",
@@ -94,13 +95,9 @@ const config: Config = {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(-50%)" },
         },
-        drawline: {
-          from: { transform: "scaleX(0)" },
-          to: { transform: "scaleX(1)" },
-        },
       },
       animation: {
-        marquee: "marquee var(--mq, 36s) linear infinite",
+        marquee: "marquee var(--mq, 40s) linear infinite",
       },
     },
   },
