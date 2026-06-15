@@ -27,21 +27,20 @@ export default function HomePage() {
       <JsonLd data={servicesLd()} />
 
       {/* ============ HERO ============ */}
-      <section className="bg-sand-50 pb-section-sm pt-[calc(var(--header-h)+4rem)]">
-        <div className="container-page">
-          <Reveal>
-            <Eyebrow>{hero.eyebrow}</Eyebrow>
-          </Reveal>
-          <Reveal delay={0.06}>
-            <h1 className="mt-8 max-w-[16ch] text-display">{hero.title}</h1>
-          </Reveal>
-
-          <div className="mt-10 grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:items-end">
+      <section className="flex min-h-[88vh] items-center bg-sand-50 pb-16 pt-[calc(var(--header-h)+3rem)]">
+        <div className="container-page grid w-full gap-x-16 gap-y-14 lg:grid-cols-[1.35fr_0.65fr] lg:items-center">
+          <div>
+            <Reveal>
+              <Eyebrow>{hero.eyebrow}</Eyebrow>
+            </Reveal>
+            <Reveal delay={0.06}>
+              <h1 className="mt-8 text-display">{hero.title}</h1>
+            </Reveal>
             <Reveal delay={0.12}>
-              <p className="max-w-xl text-lead text-muted">{hero.lead}</p>
+              <p className="mt-8 max-w-xl text-lead text-muted">{hero.lead}</p>
             </Reveal>
             <Reveal delay={0.18}>
-              <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
+              <div className="mt-10 flex flex-col gap-3 sm:flex-row">
                 <Button href={hero.primaryCta.href} size="lg" arrow>
                   {hero.primaryCta.label}
                 </Button>
@@ -51,6 +50,21 @@ export default function HomePage() {
               </div>
             </Reveal>
           </div>
+
+          <Reveal delay={0.22}>
+            <div className="grid grid-cols-2 gap-x-8 gap-y-10 lg:border-l lg:border-ink/15 lg:pl-12">
+              {stats.map((stat) => (
+                <div key={stat.label}>
+                  <div className="font-display text-4xl font-medium text-ink lg:text-5xl">
+                    {stat.value}
+                  </div>
+                  <div className="mt-2 text-sm leading-relaxed text-muted">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -87,22 +101,6 @@ export default function HomePage() {
                 </Link>
               </Reveal>
             </div>
-          </div>
-
-          {/* stats — airy, no bordered grid */}
-          <div className="mt-20 grid grid-cols-2 gap-x-8 gap-y-12 border-t border-ink/10 pt-14 lg:grid-cols-4">
-            {stats.map((stat, i) => (
-              <Reveal key={stat.label} delay={i * 0.06}>
-                <div>
-                  <div className="font-display text-5xl font-medium text-ink lg:text-6xl">
-                    {stat.value}
-                  </div>
-                  <div className="mt-3 max-w-[18ch] text-sm leading-relaxed text-muted">
-                    {stat.label}
-                  </div>
-                </div>
-              </Reveal>
-            ))}
           </div>
         </div>
       </section>

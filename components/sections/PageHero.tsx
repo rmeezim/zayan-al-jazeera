@@ -13,7 +13,7 @@ interface PageHeroProps {
 
 export function PageHero({ eyebrow, title, lead, current, aside }: PageHeroProps) {
   return (
-    <section className="relative overflow-hidden border-b border-ink/10 bg-sand-50 pb-section-sm pt-[calc(var(--header-h)+3rem)]">
+    <section className="relative flex min-h-[56vh] items-center overflow-hidden border-b border-ink/10 bg-sand-50 pb-section-sm pt-[calc(var(--header-h)+3.5rem)]">
       <div className="container-page">
         <nav aria-label="Breadcrumb" className="mb-8">
           <ol className="flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-wider text-muted">

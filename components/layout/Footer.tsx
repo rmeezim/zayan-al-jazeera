@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { site, contact, services, socials } from "@/content/site-content";
-import { Wordmark } from "@/components/ui/BrandMark";
+import { Logo } from "@/components/ui/Logo";
 import { Button } from "@/components/ui/Button";
 
 const companyLinks = [
@@ -20,7 +20,7 @@ export function Footer() {
           {/* brand */}
           <div>
             <Link href="/" aria-label="Zayan Al-Jazeera — home" className="inline-flex">
-              <Wordmark light />
+              <Logo light imgClassName="h-12" />
             </Link>
             <p className="mt-6 max-w-xs leading-relaxed text-muted-ondark">
               With over a decade of experience in construction, we partner with

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { nav, contact } from "@/content/site-content";
-import { Wordmark } from "@/components/ui/BrandMark";
+import { Logo } from "@/components/ui/Logo";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
@@ -49,7 +49,7 @@ export function Header() {
     >
       <div className="container-page flex h-[var(--header-h)] items-center justify-between gap-6">
         <Link href="/" aria-label="Zayan Al-Jazeera — home" className="shrink-0">
-          <Wordmark />
+          <Logo imgClassName="h-9" />
         </Link>
 
         <nav
