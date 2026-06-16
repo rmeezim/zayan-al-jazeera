@@ -1,12 +1,13 @@
 import { cn } from "@/lib/utils";
 
-type Tone = "petrol" | "sand" | "deep";
+type Tone = "petrol" | "sand" | "deep" | "navy";
 // `motif` kept for API compatibility; it nudges the accent placement only.
 type Motif = "build" | "systems" | "interior" | "grounds";
 
 const toneClass: Record<Tone, string> = {
   petrol: "bg-ink text-sand-50",
   deep: "bg-ink-700 text-sand-50",
+  navy: "bg-navy text-sand-50",
   sand: "bg-sand-100 text-ink",
 };
 

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { about, values, stats } from "@/content/site-content";
 import { createMetadata } from "@/lib/seo";
 import { breadcrumbLd } from "@/lib/jsonld";
+import { cn } from "@/lib/utils";
 import { JsonLd } from "@/components/layout/JsonLd";
 import { PageHero } from "@/components/sections/PageHero";
 import { ClientsStrip } from "@/components/sections/ClientsStrip";
@@ -70,36 +71,31 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* vision + mission — editorial splits (no cards) */}
+      {/* vision + mission — alternating editorial blocks with visuals */}
       <section className="section bg-sand-50" aria-label="Vision and mission">
-        <div className="container-page">
-          {[about.vision, about.mission].map((item, idx) => {
+        <div className="container-page space-y-20 lg:space-y-28">
+          {[
+            { ...about.vision, n: "01", tone: "navy" as const, motif: "build" as const },
+            { ...about.mission, n: "02", tone: "sand" as const, motif: "systems" as const },
+          ].map((item, idx) => {
             const dot = item.body.indexOf(". ");
             const lead = dot > 0 ? item.body.slice(0, dot + 1) : item.body;
             const rest = dot > 0 ? item.body.slice(dot + 2) : "";
+            const reversed = idx === 1;
             return (
-              <div key={item.title}>
-                {idx === 1 && <div className="my-16 h-px bg-ink/10 lg:my-24" />}
-                <div className="grid gap-x-16 gap-y-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-                  <div>
-                    <Reveal>
-                      <span className="label-cap text-brand">0{idx + 1}</span>
-                    </Reveal>
-                    <Reveal delay={0.05}>
-                      <h2 className="mt-5 text-h2">{item.title}</h2>
-                    </Reveal>
-                  </div>
-                  <div className="lg:pt-2">
-                    <Reveal delay={0.08}>
-                      <p className="text-lead text-ink">{lead}</p>
-                    </Reveal>
-                    {rest && (
-                      <Reveal delay={0.12}>
-                        <p className="mt-6 t-body">{rest}</p>
-                      </Reveal>
-                    )}
-                  </div>
-                </div>
+              <div
+                key={item.title}
+                className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16"
+              >
+                <Reveal className={cn(reversed && "lg:order-2")}>
+                  <span className="label-cap text-brand">{item.n}</span>
+                  <h2 className="mt-4 text-h2">{item.title}</h2>
+                  <p className="mt-7 text-lead text-ink">{lead}</p>
+                  {rest && <p className="mt-5 t-body">{rest}</p>}
+                </Reveal>
+                <Reveal delay={0.1} className={cn(reversed && "lg:order-1")}>
+                  <ArtFrame tone={item.tone} figure={item.n} motif={item.motif} aspect="4 / 3" />
+                </Reveal>
               </div>
             );
           })}
