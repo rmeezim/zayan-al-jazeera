@@ -21,7 +21,8 @@ export function Logo({
   className?: string;
 }) {
   const [ready, setReady] = useState(false);
-  const src = asset(light ? "/brand/logo-white.png" : "/brand/logo.png");
+  // ?v cache-buster: ensures a stale 404 (cached before the file existed) is bypassed.
+  const src = `${asset(light ? "/brand/logo-white.png" : "/brand/logo.png")}?v=2`;
 
   return (
     <span className={cn("inline-flex items-center", className)}>

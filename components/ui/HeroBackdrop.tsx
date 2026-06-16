@@ -12,7 +12,7 @@ import { asset } from "@/lib/utils";
  */
 export function HeroBackdrop() {
   const [ready, setReady] = useState(false);
-  const src = asset("/images/hero.jpg");
+  const src = `${asset("/images/hero.jpg")}?v=2`;
 
   return (
     <div

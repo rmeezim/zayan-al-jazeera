@@ -60,7 +60,7 @@ const config: Config = {
         mono: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       fontSize: {
-        display: ["clamp(2.9rem, 6.8vw, 6.5rem)", { lineHeight: "1.0", letterSpacing: "-0.02em" }],
+        display: ["clamp(2.2rem, 4.3vw, 3.9rem)", { lineHeight: "1.06", letterSpacing: "-0.02em" }],
         h1: ["clamp(2.3rem, 4.6vw, 4.25rem)", { lineHeight: "1.04", letterSpacing: "-0.018em" }],
         h2: ["clamp(1.9rem, 3.4vw, 3.1rem)", { lineHeight: "1.08", letterSpacing: "-0.015em" }],
         h3: ["clamp(1.35rem, 1.9vw, 1.8rem)", { lineHeight: "1.2", letterSpacing: "-0.01em" }],

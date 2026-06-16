@@ -28,18 +28,18 @@ export default function HomePage() {
       <JsonLd data={servicesLd()} />
 
       {/* ============ HERO ============ */}
-      <section className="relative overflow-hidden bg-sand-50">
+      <section className="relative flex min-h-[90vh] items-center overflow-hidden bg-sand-50 pb-14 pt-[calc(var(--header-h)+2rem)]">
         <HeroBackdrop />
-        <div className="container-page relative grid min-h-[88vh] items-center gap-x-16 gap-y-12 pb-16 pt-[calc(var(--header-h)+2.5rem)] lg:grid-cols-[1.35fr_0.65fr]">
-          <div>
+        <div className="container-page relative grid w-full items-stretch gap-x-16 gap-y-12 lg:grid-cols-[1.35fr_0.65fr]">
+          <div className="flex flex-col">
             <Reveal>
               <Eyebrow>{hero.eyebrow}</Eyebrow>
             </Reveal>
             <Reveal delay={0.06}>
-              <h1 className="mt-8 text-display">{hero.title}</h1>
+              <h1 className="mt-7 text-display">{hero.title}</h1>
             </Reveal>
             <Reveal delay={0.12}>
-              <p className="mt-8 max-w-xl text-lead text-muted">{hero.lead}</p>
+              <p className="mt-7 max-w-xl text-lead text-muted">{hero.lead}</p>
             </Reveal>
             <Reveal delay={0.18}>
               <div className="mt-10 flex flex-col gap-3 sm:flex-row">
@@ -53,7 +53,8 @@ export default function HomePage() {
             </Reveal>
           </div>
 
-          <Reveal delay={0.22}>
+          {/* stats anchored to the bottom-right, level with the CTA baseline */}
+          <Reveal delay={0.22} className="flex flex-col justify-end">
             <div className="grid grid-cols-2 gap-x-8 gap-y-10">
               {stats.map((stat) => (
                 <div key={stat.label}>
