@@ -7,7 +7,6 @@ import { JsonLd } from "@/components/layout/JsonLd";
 import { PageHero } from "@/components/sections/PageHero";
 import { ClientsStrip } from "@/components/sections/ClientsStrip";
 import { CtaBand } from "@/components/sections/CtaBand";
-import { ArtFrame } from "@/components/ui/ArtFrame";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/motion/Reveal";
 
@@ -33,7 +32,6 @@ export default function AboutPage() {
         title={about.hero.title}
         lead={about.hero.lead}
         current="About"
-        aside={<ArtFrame tone="petrol" figure="ZAJ" label="Building & maintaining the Kingdom" aspect="4 / 3" />}
       />
 
       {/* who we are */}
@@ -71,32 +69,45 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* vision + mission — alternating editorial blocks with visuals */}
+      {/* vision + mission — large editorial statements */}
       <section className="section bg-sand-50" aria-label="Vision and mission">
-        <div className="container-page space-y-20 lg:space-y-28">
+        <div className="container-page">
+          <Reveal>
+            <div className="flex items-end justify-between gap-6 border-b border-ink/15 pb-6">
+              <Eyebrow>Vision &amp; mission</Eyebrow>
+              <span className="label-cap hidden text-muted sm:block">What drives us</span>
+            </div>
+          </Reveal>
+
           {[
-            { ...about.vision, n: "01", tone: "navy" as const, motif: "build" as const },
-            { ...about.mission, n: "02", tone: "sand" as const, motif: "systems" as const },
+            { ...about.vision, n: "01" },
+            { ...about.mission, n: "02" },
           ].map((item, idx) => {
             const dot = item.body.indexOf(". ");
             const lead = dot > 0 ? item.body.slice(0, dot + 1) : item.body;
             const rest = dot > 0 ? item.body.slice(dot + 2) : "";
-            const reversed = idx === 1;
             return (
-              <div
-                key={item.title}
-                className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16"
-              >
-                <Reveal className={cn(reversed && "lg:order-2")}>
-                  <span className="label-cap text-brand">{item.n}</span>
-                  <h2 className="mt-4 text-h2">{item.title}</h2>
-                  <p className="mt-7 text-lead text-ink">{lead}</p>
-                  {rest && <p className="mt-5 t-body">{rest}</p>}
-                </Reveal>
-                <Reveal delay={0.1} className={cn(reversed && "lg:order-1")}>
-                  <ArtFrame tone={item.tone} figure={item.n} motif={item.motif} aspect="4 / 3" />
-                </Reveal>
-              </div>
+              <Reveal key={item.title}>
+                <div
+                  className={cn(
+                    "grid gap-x-12 gap-y-7 py-12 lg:grid-cols-[minmax(0,0.4fr)_minmax(0,1fr)] lg:py-16",
+                    idx === 1 && "border-t border-ink/10",
+                  )}
+                >
+                  <div className="flex items-baseline gap-5 lg:flex-col lg:gap-7">
+                    <span className="font-display text-6xl font-medium leading-none text-ink/15 lg:text-8xl">
+                      {item.n}
+                    </span>
+                    <h2 className="text-h2">{item.title}</h2>
+                  </div>
+                  <div>
+                    <p className="font-display text-[clamp(1.4rem,2.2vw,2.05rem)] font-medium leading-[1.35] text-ink">
+                      {lead}
+                    </p>
+                    {rest && <p className="mt-6 max-w-prose t-body">{rest}</p>}
+                  </div>
+                </div>
+              </Reveal>
             );
           })}
         </div>
