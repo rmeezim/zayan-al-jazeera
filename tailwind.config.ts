@@ -52,6 +52,12 @@ const config: Config = {
           700: "#4C7020",
           bright: "#84C13E",
         },
+        // brand blues — navy as a feature-dark surface, sky as its accent
+        navy: {
+          DEFAULT: "#003152",
+          600: "#0A4A6E",
+        },
+        sky: "#ADDFF1",
       },
       fontFamily: {
         // Single clean grotesque (Manrope) across the site — display/body/labels.

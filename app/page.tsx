@@ -56,14 +56,13 @@ export default function HomePage() {
 
           {/* stats anchored to the bottom-right, level with the CTA baseline */}
           <Reveal delay={0.22}>
-            <div className="grid w-full grid-cols-2 border-t border-ink/15">
+            <div className="grid w-full grid-cols-2">
               {stats.map((stat, i) => (
                 <div
                   key={stat.label}
                   className={cn(
-                    i < 2 ? "py-6" : "pt-6",
-                    i % 2 === 0 ? "border-r border-ink/15 pr-6" : "pl-6",
-                    i < 2 ? "border-b border-ink/15" : "",
+                    i < 2 ? "border-b border-ink/15 pb-6" : "pt-6",
+                    i % 2 === 0 ? "border-r border-ink/15 pr-6" : "pl-6 text-right",
                   )}
                 >
                   <div className="font-display text-4xl font-medium text-ink lg:text-5xl">

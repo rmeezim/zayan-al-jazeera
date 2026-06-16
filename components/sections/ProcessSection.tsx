@@ -7,10 +7,10 @@ import { cn } from "@/lib/utils";
 const cardStyles = [
   "bg-sand-50 text-ink",
   "bg-green text-ink",
-  "bg-ink text-sand-50",
+  "bg-navy text-sand-50",
   "bg-sand-200 text-ink",
 ];
-const numStyles = ["text-ink/15", "text-ink/30", "text-sand-50/25", "text-ink/20"];
+const numStyles = ["text-ink/15", "text-ink/30", "text-sky/50", "text-ink/20"];
 const bodyStyles = ["text-muted", "text-ink/75", "text-sand-50/75", "text-muted"];
 
 export function ProcessSection() {

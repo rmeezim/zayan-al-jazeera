@@ -80,7 +80,7 @@ export default function AboutPage() {
             </div>
           </Reveal>
           <Reveal delay={0.08}>
-            <div className="flex h-full flex-col rounded-lg bg-ink p-8 text-sand-50 lg:p-12">
+            <div className="flex h-full flex-col rounded-lg bg-navy p-8 text-sand-50 lg:p-12">
               <span className="eyebrow eyebrow-light">{about.mission.title}</span>
               <p className="mt-7 text-lead leading-relaxed text-sand-50/90">{about.mission.body}</p>
             </div>
