@@ -31,8 +31,8 @@ export default function HomePage() {
       {/* ============ HERO ============ */}
       <section className="relative flex min-h-svh items-center overflow-hidden bg-sand-50 pb-14 pt-[calc(var(--header-h)+2rem)]">
         <HeroBackdrop />
-        <div className="container-page relative grid w-full items-stretch gap-x-16 gap-y-12 lg:grid-cols-[1.35fr_0.65fr]">
-          <div className="flex flex-col">
+        <div className="container-page relative grid w-full items-end gap-x-16 gap-y-12 lg:grid-cols-[1.35fr_0.65fr]">
+          <div>
             <Reveal>
               <Eyebrow>{hero.eyebrow}</Eyebrow>
             </Reveal>
@@ -55,7 +55,7 @@ export default function HomePage() {
           </div>
 
           {/* stats anchored to the bottom-right, level with the CTA baseline */}
-          <Reveal delay={0.22} className="flex flex-col justify-end">
+          <Reveal delay={0.22}>
             <div className="grid w-full grid-cols-2 border-t border-ink/15">
               {stats.map((stat, i) => (
                 <div

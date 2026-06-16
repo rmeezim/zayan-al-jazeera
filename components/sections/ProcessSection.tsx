@@ -3,64 +3,70 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/motion/Reveal";
 import { cn } from "@/lib/utils";
 
+// Color-coded cards (one accent moment in green, one dark) like the inspiration.
+const cardStyles = [
+  "bg-sand-50 text-ink border-ink/10",
+  "bg-green text-ink border-transparent",
+  "bg-ink text-sand-50 border-transparent",
+  "bg-sand-200 text-ink border-ink/10",
+];
+const numStyles = ["text-ink/15", "text-ink/30", "text-sand-50/25", "text-ink/20"];
+const bodyStyles = ["text-muted", "text-ink/75", "text-sand-50/75", "text-muted"];
+
 export function ProcessSection() {
   const { process } = home;
   return (
     <section className="section bg-paper" aria-labelledby="process-title">
       <div className="container-page">
-        <div className="grid gap-8 lg:grid-cols-[1fr_1.3fr] lg:items-end">
-          <div>
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-16">
+          {/* sticky heading */}
+          <div className="lg:sticky lg:top-[calc(var(--header-h)+3.5rem)]">
             <Reveal>
               <Eyebrow>{process.eyebrow}</Eyebrow>
             </Reveal>
             <Reveal delay={0.05}>
-              <h2 id="process-title" className="mt-5 text-h2">
+              <h2 id="process-title" className="mt-6 text-h2">
                 {process.title}
               </h2>
             </Reveal>
+            <Reveal delay={0.1}>
+              <p className="mt-6 max-w-md t-body">{process.lead}</p>
+            </Reveal>
           </div>
-          <Reveal delay={0.1}>
-            <p className="text-body lg:pb-2">{process.lead}</p>
-          </Reveal>
-        </div>
 
-        <ol className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {processSteps.map((step, i) => {
-            const highlight = i === 1; // one bold accent moment
-            return (
-              <Reveal key={step.n} delay={i * 0.08}>
-                <li
+          {/* stacking cards */}
+          <ol className="space-y-5">
+            {processSteps.map((step, i) => (
+              <li
+                key={step.n}
+                className="lg:sticky"
+                style={{ top: `calc(var(--header-h) + ${1.5 + i * 1.25}rem)` }}
+              >
+                <div
                   className={cn(
-                    "flex h-full flex-col rounded-md border p-7 transition-all duration-300",
-                    highlight
-                      ? "border-transparent bg-green text-ink"
-                      : "border-ink/10 bg-paper hover:border-ink/20 hover:shadow-soft",
+                    "flex min-h-[320px] flex-col justify-between rounded-lg border p-8 shadow-soft lg:min-h-[380px] lg:p-10",
+                    cardStyles[i],
                   )}
                 >
                   <span
                     className={cn(
-                      "font-display text-4xl font-medium",
-                      highlight ? "text-ink" : "text-ink/20",
+                      "font-display text-6xl font-medium leading-none lg:text-7xl",
+                      numStyles[i],
                     )}
                   >
                     {step.n}
                   </span>
-                  <h3 className="mt-6 font-display text-lg font-medium text-ink">
-                    {step.title}
-                  </h3>
-                  <p
-                    className={cn(
-                      "mt-3 text-[0.95rem] leading-relaxed",
-                      highlight ? "text-ink/80" : "text-muted",
-                    )}
-                  >
-                    {step.body}
-                  </p>
-                </li>
-              </Reveal>
-            );
-          })}
-        </ol>
+                  <div className="mt-10">
+                    <h3 className="font-display text-2xl font-medium">{step.title}</h3>
+                    <p className={cn("mt-3 max-w-sm leading-relaxed", bodyStyles[i])}>
+                      {step.body}
+                    </p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
       </div>
     </section>
   );
