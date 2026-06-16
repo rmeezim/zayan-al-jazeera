@@ -5,11 +5,8 @@ import { Wordmark } from "./BrandMark";
 import { asset, cn } from "@/lib/utils";
 
 /**
- * Uses the official logo artwork from /public/brand when present, and falls
- * back to the in-code wordmark until those files exist (chat-uploaded images
- * can't be committed from this environment — see GAPS.md). A hidden preloader
- * swaps in the real image only once it actually loads, so there's never a
- * broken-image flash.
+ * Renders the official logo from /public/images. Falls back to the in-code
+ * wordmark only if the image genuinely fails to load (onError).
  */
 export function Logo({
   light = false,
@@ -20,26 +17,18 @@ export function Logo({
   imgClassName?: string;
   className?: string;
 }) {
-  const [ready, setReady] = useState(false);
-  // ?v cache-buster: ensures a stale 404 (cached before the file existed) is bypassed.
-  const src = `${asset(light ? "/brand/logo-white.png" : "/brand/logo.png")}?v=2`;
+  const [failed, setFailed] = useState(false);
+
+  if (failed) return <Wordmark light={light} className={className} />;
+
+  const src = asset(light ? "/images/zaj-logo-white.png" : "/images/zaj-logo.png");
 
   return (
-    <span className={cn("inline-flex items-center", className)}>
-      {ready ? (
-        <img src={src} alt="Zayan Al-Jazeera" className={cn("w-auto", imgClassName)} />
-      ) : (
-        <Wordmark light={light} />
-      )}
-      {!ready && (
-        <img
-          src={src}
-          alt=""
-          aria-hidden="true"
-          className="hidden"
-          onLoad={() => setReady(true)}
-        />
-      )}
-    </span>
+    <img
+      src={src}
+      alt="Zayan Al-Jazeera"
+      onError={() => setFailed(true)}
+      className={cn("w-auto", imgClassName, className)}
+    />
   );
 }
