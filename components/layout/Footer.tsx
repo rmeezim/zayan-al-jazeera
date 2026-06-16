@@ -20,7 +20,7 @@ export function Footer() {
           {/* brand */}
           <div>
             <Link href="/" aria-label="Zayan Al-Jazeera — home" className="inline-flex">
-              <Logo light imgClassName="h-12" />
+              <Logo light imgClassName="h-10" />
             </Link>
             <p className="mt-6 max-w-xs leading-relaxed text-muted-ondark">
               With over a decade of experience in construction, we partner with
