@@ -5,10 +5,10 @@ import { cn } from "@/lib/utils";
 
 // Color-coded cards (one accent moment in green, one dark) like the inspiration.
 const cardStyles = [
-  "bg-sand-50 text-ink border-ink/10",
-  "bg-green text-ink border-transparent",
-  "bg-ink text-sand-50 border-transparent",
-  "bg-sand-200 text-ink border-ink/10",
+  "bg-sand-50 text-ink",
+  "bg-green text-ink",
+  "bg-ink text-sand-50",
+  "bg-sand-200 text-ink",
 ];
 const numStyles = ["text-ink/15", "text-ink/30", "text-sand-50/25", "text-ink/20"];
 const bodyStyles = ["text-muted", "text-ink/75", "text-sand-50/75", "text-muted"];
@@ -44,7 +44,7 @@ export function ProcessSection() {
               >
                 <div
                   className={cn(
-                    "flex min-h-[320px] flex-col justify-between rounded-lg border p-8 shadow-soft lg:min-h-[380px] lg:p-10",
+                    "flex min-h-[320px] flex-col justify-between p-8 shadow-soft lg:min-h-[400px] lg:p-10",
                     cardStyles[i],
                   )}
                 >
@@ -57,7 +57,9 @@ export function ProcessSection() {
                     {step.n}
                   </span>
                   <div className="mt-10">
-                    <h3 className="font-display text-2xl font-medium">{step.title}</h3>
+                    <h3 className="font-display text-2xl font-medium text-inherit">
+                      {step.title}
+                    </h3>
                     <p className={cn("mt-3 max-w-sm leading-relaxed", bodyStyles[i])}>
                       {step.body}
                     </p>

@@ -61,7 +61,7 @@ export default function HomePage() {
                 <div
                   key={stat.label}
                   className={cn(
-                    "py-6",
+                    i < 2 ? "py-6" : "pt-6",
                     i % 2 === 0 ? "border-r border-ink/15 pr-6" : "pl-6",
                     i < 2 ? "border-b border-ink/15" : "",
                   )}
