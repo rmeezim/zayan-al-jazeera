@@ -49,7 +49,7 @@ export function Header() {
     >
       <div className="container-page flex h-[var(--header-h)] items-center justify-between gap-6">
         <Link href="/" aria-label="Zayan Al-Jazeera — home" className="shrink-0">
-          <Logo imgClassName="h-9" />
+          <Logo imgClassName="h-11" />
         </Link>
 
         <nav

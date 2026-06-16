@@ -13,14 +13,12 @@ post-launch step before go-live.
       (IKEA, P&G, King Abdullah Port, Saudi Air Navigation Services, Abeer) honestly.
       Provide per project: name, location, sector, scope, outcome, and photography.
       They drop into `content/site-content.ts` → `work` (add a `projects` array).
-- [ ] **Project / facility photography** to replace the art-directed blueprint
-      placeholders (`components/ui/ArtFrame.tsx`, `HeroArt.tsx`). All image CDNs were
-      blocked during the build, so no stock was used and no stock was passed off as the
-      client's work. Real photos elevate every page.
-- [ ] **Official brand logo** — the logo files attached in chat did not reach the build
-      environment, so the header/footer use a close SVG recreation in the brand colours.
-      Commit the real artwork to `public/brand/logo.png` (colour) and
-      `public/brand/logo-white.png` (footer) and it will be swapped in.
+- [ ] **Project / facility photography** for the service/work/blog visuals, which are
+      currently editorial colour plates (`components/ui/ArtFrame.tsx`). The homepage hero
+      now uses a supplied render (`public/images/hero.jpg`). Real project photos would
+      elevate the remaining sections and can replace the plates.
+- [x] **Official brand logo** — added (`public/brand/logo.png` colour + `logo-white.png`),
+      shown in the header and footer.
 - [ ] **Client logos** — we list the real client *names*. If permissioned logo files
       are provided, swap the text list on `/work` for logos.
 - [ ] **Testimonials** — the live site's testimonials are templated/fake and were
