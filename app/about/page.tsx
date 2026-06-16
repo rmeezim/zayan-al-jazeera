@@ -70,21 +70,39 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* vision + mission */}
-      <section className="section bg-sand" aria-label="Vision and mission">
-        <div className="container-page grid gap-6 lg:grid-cols-2">
-          <Reveal>
-            <div className="flex h-full flex-col rounded-lg border border-ink/10 bg-paper p-8 lg:p-12">
-              <Eyebrow>{about.vision.title}</Eyebrow>
-              <p className="mt-7 text-lead leading-relaxed text-ink">{about.vision.body}</p>
-            </div>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <div className="flex h-full flex-col rounded-lg bg-navy p-8 text-sand-50 lg:p-12">
-              <span className="eyebrow eyebrow-light">{about.mission.title}</span>
-              <p className="mt-7 text-lead leading-relaxed text-sand-50/90">{about.mission.body}</p>
-            </div>
-          </Reveal>
+      {/* vision + mission — editorial splits (no cards) */}
+      <section className="section bg-sand-50" aria-label="Vision and mission">
+        <div className="container-page">
+          {[about.vision, about.mission].map((item, idx) => {
+            const dot = item.body.indexOf(". ");
+            const lead = dot > 0 ? item.body.slice(0, dot + 1) : item.body;
+            const rest = dot > 0 ? item.body.slice(dot + 2) : "";
+            return (
+              <div key={item.title}>
+                {idx === 1 && <div className="my-16 h-px bg-ink/10 lg:my-24" />}
+                <div className="grid gap-x-16 gap-y-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+                  <div>
+                    <Reveal>
+                      <span className="label-cap text-brand">0{idx + 1}</span>
+                    </Reveal>
+                    <Reveal delay={0.05}>
+                      <h2 className="mt-5 text-h2">{item.title}</h2>
+                    </Reveal>
+                  </div>
+                  <div className="lg:pt-2">
+                    <Reveal delay={0.08}>
+                      <p className="text-lead text-ink">{lead}</p>
+                    </Reveal>
+                    {rest && (
+                      <Reveal delay={0.12}>
+                        <p className="mt-6 t-body">{rest}</p>
+                      </Reveal>
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 
