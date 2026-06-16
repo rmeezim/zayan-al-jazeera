@@ -116,10 +116,13 @@
   }
   .eyebrow::before {
     content: "";
-    @apply inline-block h-4 w-1 shrink-0 rounded-[1px] bg-green;
+    @apply inline-block h-4 w-1 shrink-0 rounded-[1px] bg-navy;
   }
   .eyebrow-light {
     @apply text-sand-50;
+  }
+  .eyebrow-light::before {
+    @apply bg-sky;
   }
 
   .label-cap {
@@ -136,7 +139,7 @@
     @apply bg-ink text-sand-50 hover:bg-ink-700 hover:-translate-y-0.5;
   }
   .btn-accent {
-    @apply bg-green text-ink hover:bg-green-600 hover:-translate-y-0.5;
+    @apply bg-sky text-navy hover:bg-sky-600 hover:-translate-y-0.5;
   }
   .btn-ghost {
     @apply border border-ink/25 text-ink hover:border-ink hover:bg-ink hover:text-sand-50;
@@ -218,13 +221,13 @@
   }
   .prose-rich li::before {
     content: "";
-    @apply absolute left-0 top-[0.7em] h-1.5 w-1.5 -translate-y-1/2 bg-green;
+    @apply absolute left-0 top-[0.7em] h-1.5 w-1.5 -translate-y-1/2 bg-navy;
   }
   .prose-rich strong {
     @apply font-semibold text-ink;
   }
   .prose-rich blockquote {
-    @apply my-8 border-s-2 border-green ps-6 font-display text-2xl font-medium leading-snug text-ink;
+    @apply my-8 border-s-2 border-navy ps-6 font-display text-2xl font-medium leading-snug text-ink;
   }
 }
 

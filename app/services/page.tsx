@@ -93,7 +93,7 @@ export default function ServicesPage() {
                           className="flex items-center gap-3 border-b border-ink/10 py-3 text-[0.95rem] text-ink"
                         >
                           <span
-                            className="h-1.5 w-1.5 shrink-0 bg-green"
+                            className="h-1.5 w-1.5 shrink-0 bg-navy"
                             aria-hidden="true"
                           />
                           {item}

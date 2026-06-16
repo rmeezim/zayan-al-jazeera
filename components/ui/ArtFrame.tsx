@@ -56,7 +56,7 @@ export function ArtFrame({
           cx="100"
           cy="100"
           r="92"
-          stroke={dark ? "#84C13E" : "#6FA12E"}
+          stroke={dark ? "#ADDFF1" : "#003152"}
           strokeOpacity={dark ? "0.28" : "0.35"}
           strokeWidth="1.5"
         />
@@ -91,7 +91,7 @@ export function ArtFrame({
         >
           {focal}
         </div>
-        <span className="mt-5 block h-px w-12 bg-green" aria-hidden="true" />
+        <span className={cn("mt-5 block h-px w-12", dark ? "bg-sky" : "bg-navy")} aria-hidden="true" />
       </div>
     </div>
   );

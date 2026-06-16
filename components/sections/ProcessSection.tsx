@@ -3,10 +3,10 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/motion/Reveal";
 import { cn } from "@/lib/utils";
 
-// Color-coded cards (one accent moment in green, one dark) like the inspiration.
+// Color-coded cards (a light-blue accent card and a navy card) like the inspiration.
 const cardStyles = [
   "bg-sand-50 text-ink",
-  "bg-green text-ink",
+  "bg-sky text-ink",
   "bg-navy text-sand-50",
   "bg-sand-200 text-ink",
 ];

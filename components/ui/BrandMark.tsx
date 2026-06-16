@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
 // Brand colours from the official Zayan Al-Jazeera logo.
-const LOGO_GREEN = "#8CC63F";
+const LOGO_NAVY = "#003152";
 const LOGO_BLUE = "#29ABE2";
 const LOGO_GREY = "#808285";
 
@@ -41,7 +41,7 @@ export function BrandMark({
           </defs>
           <rect x="1" y="1" width="46" height="46" rx="11" fill="url(#zaj-mark)" />
           <path d="M11 10 H37 V16.5 L24.5 30 H37 V38 H11 V31.5 L23.2 18 H11 Z" fill="#ffffff" />
-          <path d="M30 30 H38 L31 38 H23 Z" fill={LOGO_GREEN} />
+          <path d="M30 30 H38 L31 38 H23 Z" fill={LOGO_NAVY} />
         </>
       )}
     </svg>
@@ -60,7 +60,7 @@ export function Wordmark({
       <BrandMark className="h-9 w-9 shrink-0" white={light} />
       <span className="flex flex-col leading-[1.06]">
         <span className="flex items-baseline gap-1.5 text-[1.02rem] font-bold tracking-tight">
-          <span style={{ color: light ? "#fff" : LOGO_GREEN }}>ZAYAN</span>
+          <span style={{ color: light ? "#fff" : LOGO_NAVY }}>ZAYAN</span>
           <span style={{ color: light ? "#fff" : LOGO_BLUE }}>AL-JAZEERA</span>
         </span>
         <span

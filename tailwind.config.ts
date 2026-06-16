@@ -39,25 +39,21 @@ const config: Config = {
           light: "#968B7A",
           ondark: "#B9AF9E",
         },
-        // earthy green — text/labels/links accent (AA on cream & white)
+        // navy = accent for text / links / ticks / markers on light surfaces
         brand: {
-          DEFAULT: "#3E6019",
-          bright: "#5E8A26",
-          deep: "#2E480F",
+          DEFAULT: "#003152",
+          bright: "#0A4A6E",
+          deep: "#06283D",
         },
-        // leaf green — fills, ticks, the one highlighted moment (ink text on top)
-        green: {
-          DEFAULT: "#6FA12E",
-          600: "#5E8A26",
-          700: "#4C7020",
-          bright: "#84C13E",
-        },
-        // brand blues — navy as a feature-dark surface, sky as its accent
+        // brand blues — navy as a feature-dark surface, sky as the accent on dark
         navy: {
           DEFAULT: "#003152",
           600: "#0A4A6E",
         },
-        sky: "#ADDFF1",
+        sky: {
+          DEFAULT: "#ADDFF1",
+          600: "#8CCBE6",
+        },
       },
       fontFamily: {
         // Single clean grotesque (Manrope) across the site — display/body/labels.

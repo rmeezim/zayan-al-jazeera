@@ -33,7 +33,7 @@ export function FloatingActions() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with us on WhatsApp"
-        className="flex h-13 w-13 items-center justify-center rounded-full bg-green text-ink shadow-lift transition-transform duration-300 hover:scale-105"
+        className="flex h-13 w-13 items-center justify-center rounded-full bg-navy text-sand-50 shadow-lift transition-transform duration-300 hover:scale-105"
         style={{ height: "3.25rem", width: "3.25rem" }}
       >
         <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true">

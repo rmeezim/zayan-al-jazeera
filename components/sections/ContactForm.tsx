@@ -61,11 +61,11 @@ export function ContactForm() {
   if (sent) {
     return (
       <div
-        className="rounded-lg border border-green/40 bg-paper p-8"
+        className="rounded-lg border border-navy/40 bg-paper p-8"
         role="status"
         aria-live="polite"
       >
-        <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-green text-ink">
+        <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-navy text-sand-50">
           <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
             <path d="m5 13 4 4L19 7" />
           </svg>
@@ -130,7 +130,7 @@ export function ContactForm() {
 
       <div>
         <label className="flex items-start gap-3 text-sm text-muted">
-          <input type="checkbox" name="consent" value="yes" className="mt-1 h-4 w-4 shrink-0 accent-[#3E6019]" aria-invalid={!!errors.consent} aria-describedby={errors.consent ? "consent-err" : undefined} />
+          <input type="checkbox" name="consent" value="yes" className="mt-1 h-4 w-4 shrink-0 accent-[#003152]" aria-invalid={!!errors.consent} aria-describedby={errors.consent ? "consent-err" : undefined} />
           <span>
             I agree that Zayan Al-Jazeera may use these details to respond to my
             enquiry, per the{" "}
@@ -174,7 +174,7 @@ function Field({
     <div>
       <label htmlFor={id} className="field-label">
         {label}
-        {required && <span className="text-green"> *</span>}
+        {required && <span className="text-brand"> *</span>}
       </label>
       {children}
       {error && (

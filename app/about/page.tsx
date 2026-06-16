@@ -59,7 +59,7 @@ export default function AboutPage() {
                 <div className="mt-9 flex flex-wrap gap-x-10 gap-y-4">
                   {about.competencies.map((c) => (
                     <span key={c} className="flex items-center gap-3 font-display text-lg font-medium text-ink">
-                      <span className="h-1.5 w-1.5 bg-green" aria-hidden="true" />
+                      <span className="h-1.5 w-1.5 bg-navy" aria-hidden="true" />
                       {c}
                     </span>
                   ))}

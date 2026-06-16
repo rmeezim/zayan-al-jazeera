@@ -114,7 +114,7 @@ export default function ContactPage() {
                   Request a quote
                 </h2>
                 <p className="mt-2 text-[0.95rem] text-muted">
-                  Fields marked <span className="text-green">*</span> are required.
+                  Fields marked <span className="text-brand">*</span> are required.
                 </p>
                 <div className="mt-7">
                   <ContactForm />
